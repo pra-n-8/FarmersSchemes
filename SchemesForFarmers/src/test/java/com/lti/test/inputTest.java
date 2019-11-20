@@ -113,10 +113,9 @@ public class inputTest {
 
 	@Test
 	public void testFarmer() {
-		//ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		InputDao dao = new InputDao();
-		Farmer farmer1 = new Farmer();
-
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		GenericInterface dao = (GenericInterface)ctx.getBean("genericdao");
+ Farmer farmer1 = new Farmer();
 		farmer1.setFarmerName("vaman");
 		farmer1.setFarmerAddress("Mumbai");
 		farmer1.setFarmerCity("Mumbai");
@@ -306,14 +305,11 @@ public class inputTest {
 	
 	@Test
 	public void addListedCrops() {
-//	 ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-//	 GenericInterface dao = (GenericInterface)ctx.getBean("genericDao");
-//		CropDetails crop = (CropDetails)dao.retrieve(25,CropDetails.class);
-		InputDao dao = new InputDao();
-		CropDetails crop = (CropDetails)dao.retrieve(50000,CropDetails.class);
-		ListedCrops lc = new ListedCrops();
-//		lc.setFarmer(crop);
-		lc.setCrop(crop);
+	 ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+	 GenericInterface dao = (GenericInterface)ctx.getBean("genericDao");
+		CropDetails crop = (CropDetails)dao.retrieve(25,CropDetails.class);
+		
+		ListedCrops lc = new ListedCrops();		lc.setCrop(crop);
 		lc.setBasePrice(5000);
 		lc.setQuantity(600);
 		lc.setPostTime(LocalDateTime.now());
