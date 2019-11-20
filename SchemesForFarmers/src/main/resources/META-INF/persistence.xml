@@ -6,9 +6,9 @@
 		<class><!-- Entity Manager Class Name --></class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE" />
-			<property name="javax.persistence.jdbc.user" value="system" />
-			<property name="javax.persistence.jdbc.password" value="system" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@192.168.100.229:1521:XE" />
+			<property name="javax.persistence.jdbc.user" value="fs" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 	</persistence-unit>
