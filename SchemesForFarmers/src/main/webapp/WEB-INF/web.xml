@@ -16,7 +16,7 @@
 	
 
 	<servlet>
-		<servlet-name>mvc</servlet-name>
+		<servlet-name>FarmerController</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -24,7 +24,7 @@
 		</init-param>
 	</servlet>
 	 <servlet-mapping>
-        <servlet-name>mvc</servlet-name>
+        <servlet-name>FarmerController</servlet-name>
         <url-pattern>*.lti</url-pattern> 
     </servlet-mapping>
 
