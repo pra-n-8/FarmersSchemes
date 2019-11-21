@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller  
 public class FarmerController {  
 	
-	  @RequestMapping(value="register.lti")
+	  @RequestMapping(value="Registration.lti")
     public String display(@RequestParam("name") String name,@RequestParam("no")int no)  
     {  
 	System.out.println(name);
