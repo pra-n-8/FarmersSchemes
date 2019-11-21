@@ -193,9 +193,10 @@ public class inputTest {
 
 	@Test
 	public void testFetchFarmers() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
-		Farmer farmer = (Farmer) dao.retrieve(10, Farmer.class);
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+//		GenericInterface dao = (GenericInterface)ctx.getBean("genericDao");
+		InputDao dao = new InputDao();
+		Farmer farmer = (Farmer) dao.retrieve(25, Farmer.class);
 		assertNotNull(farmer);
 		System.out.println(farmer.getFarmerName());
 		System.out.println(farmer.getFarmerContact());
@@ -217,15 +218,11 @@ public class inputTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
 		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
 		Farmer farmer = (Farmer) dao.retrieve(10, Farmer.class);
-		BankDetails B1 = new BankDetails();
-		B1.setBankName("hdfc");
-		B1.setFarm(farmer);
-		farmer.setBank(B1);
-		dao.addEntity(B1);
+		
 
 		// assertNotNull(bidder);
-		// System.out.println(bidder.getBidderName());
-		// System.out.println(bidder.getBidderContact());
+		 System.out.println(farmer.getFarmerName());
+		 
 
 	}
 
@@ -309,7 +306,8 @@ public class inputTest {
 	 GenericInterface dao = (GenericInterface)ctx.getBean("genericDao");
 		CropDetails crop = (CropDetails)dao.retrieve(25,CropDetails.class);
 		
-		ListedCrops lc = new ListedCrops();		lc.setCrop(crop);
+		ListedCrops lc = new ListedCrops();	
+		lc.setCrop(crop);
 		lc.setBasePrice(5000);
 		lc.setQuantity(600);
 		lc.setPostTime(LocalDateTime.now());
