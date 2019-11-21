@@ -1,3 +1,4 @@
+
 package com.lti.model;
 
 import java.time.LocalDateTime;
@@ -16,12 +17,15 @@ public class ListedCrops {
 	@Id
 	@GeneratedValue
 	private int listingId;
+	
 	@ManyToOne
 	@JoinColumn(name = "crop_id")
 	private CropDetails crop;
+	
 	@ManyToOne
 	@JoinColumn(name = "farmer_id")
 	private Farmer farmer;
+	
 	private int quantity;
 	private int basePrice;
 	private LocalDateTime postTime;
