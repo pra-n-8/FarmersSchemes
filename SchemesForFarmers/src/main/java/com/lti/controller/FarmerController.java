@@ -9,7 +9,7 @@ import com.lti.model.Farmer;
 @Controller  
 public class FarmerController {  
 	
-	  @RequestMapping(value="/register.lti")
+	  @RequestMapping(value="/register")
     public String display(Farmer farmer)  
     {  
 	System.out.println(farmer);
