@@ -8,20 +8,20 @@
 </head>
 <body>
 <div class="form-wrap">
-<form>
+<form action="Bregister">
     <fieldset style="margin-right: 400px; margin-left: 400px;">
         <legend style="text-align: center;"><h1 style="text-align: center;">SignUp</h1></legend>
     
         <div style="text-align: center;"><h3>Personal Details</h3>
-            <div id="block">Full Name  <input style="margin-left: 80px;" type="text" placeholder="Full Name"></div>
-            <div id="block">Contact Number <input style="margin-left: 45px;" type="number" placeholder="Contact Number"></div>
-            <div id="block">Email Id   <input style="margin-left: 90px;" type="email" placeholder="Email Id"></div>
+            <div id="block">Full Name  <input style="margin-left: 80px;" type="text" placeholder="Full Name" name="bidderName"></div>
+            <div id="block">Contact Number <input style="margin-left: 45px;" type="number" placeholder="Contact Number" name="bidderContact"></div>
+            <div id="block">Email Id   <input style="margin-left: 90px;" type="email" placeholder="Email Id" name="bidderEmail"></div>
         </div>
         <div style="text-align: center;"><h3>Address Details</h3>
-            <div id="block">Address    <input style="margin-left: 25px;" type="text" placeholder="Address"></div>
-            <div id="block">City   <input style="margin-left: 50px;" type="text" placeholder="City"></div>
-            <div id="block">State  <input input style="margin-left: 45px;" type="text" placeholder="State"></div>
-            <div id="block">Pincode    <input style="margin-left: 25px;" type="number" placeholder="Pincode"></div>
+            <div id="block">Address    <input style="margin-left: 25px;" type="text" placeholder="bidderAddress"></div>
+            <div id="block">City   <input style="margin-left: 50px;" type="text" placeholder="bidderCity"></div>
+            <div id="block">State  <input input style="margin-left: 45px;" type="text" placeholder="bidderState"></div>
+            <div id="block">Pincode    <input style="margin-left: 25px;" type="number" placeholder="bidderPincode"></div>
         </div>
         <div style="text-align: center;"><h3 style="text-align: center;">Bank Details</h3>
             <div id="block">Account Number <input style="margin-left: 15px;" type="number" placeholder="Account Number"></div>
