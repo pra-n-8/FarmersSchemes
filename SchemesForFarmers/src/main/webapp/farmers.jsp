@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
 </head>
 <body>
 <div class="form-wrap">
-<form action="register" method="post">
+<form action="register.lti">
     <fieldset style="margin-right: 400px; margin-left: 400px;">
         <legend style="text-align: center;"><h1 style="text-align: center;">SignUp</h1></legend>
     
@@ -20,7 +21,7 @@
         <div style="text-align: center;"><h3>Address Details</h3>
             <div id="block">Address    <input style="margin-left: 25px;" type="text" placeholder="Address"></div>
             <div id="block">City   <input style="margin-left: 50px;" type="text" placeholder="City"></div>
-            <div id="block">State  <input input style="margin-left: 45px;" type="text" placeholder="State"></div>
+            <div id="block">State  <input style="margin-left: 45px;" type="text" placeholder="State"></div>
             <div id="block">Pincode    <input style="margin-left: 25px;" type="number" placeholder="Pincode"></div>
         </div>
 	<div style="text-align: center;"><h3>Land Details</h3>
