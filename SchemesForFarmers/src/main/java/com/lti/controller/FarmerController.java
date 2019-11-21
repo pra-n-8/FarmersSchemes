@@ -1,17 +1,21 @@
 
 package com.lti.controller;
   
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;  
+
+import com.lti.model.Farmer;
+import com.lti.service.farmerRegistarationPanel;  
 
 @Controller  
 public class FarmerController {  
-	
+	@Autowired
+	farmerRegistarationPanel lp;
 	  @RequestMapping(value="/register.lti")
-    public String display(@RequestParam("name") String name,@RequestParam("no")int no)  
+    public String display(Farmer farmer)  
     {  
-	System.out.println(name);
+		
         return "home.jsp";  
     }     
 
