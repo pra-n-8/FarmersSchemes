@@ -2,15 +2,16 @@ package com.lti.controller;
   
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;  
+
+import com.lti.model.Farmer;  
 
 @Controller  
 public class FarmerController {  
 	
 	  @RequestMapping(value="/register.lti")
-    public String display(@RequestParam("name") String name,@RequestParam("no")int no)  
+    public String display(Farmer farmer)  
     {  
-	System.out.println(name);
+	System.out.println(farmer);
         return "home.jsp";  
     }     
 }  
