@@ -50,8 +50,6 @@ public class InputDao implements GenericInterface {
 	emf.close(); 
 	return obj;
 
-		Object entity = (Object) em.find(clazz, Id);
-		return entity;
 
 	}
 
