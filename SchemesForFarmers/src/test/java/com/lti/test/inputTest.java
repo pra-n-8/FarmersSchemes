@@ -3,6 +3,7 @@ package com.lti.test;
 import static org.junit.Assert.assertNotNull;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -204,8 +205,9 @@ public class inputTest {
 
 	@Test
 	public void testFetchBidders() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+//		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+		InputDao dao = new InputDao();
 		Bidder bidder = (Bidder) dao.retrieve(48, Bidder.class);
 		BankDetails bank = new BankDetails();
 		bank.setBankName("BOI");
@@ -215,8 +217,9 @@ public class inputTest {
 
 	@Test
 	public void testFetchFarmer() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+//		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+		InputDao dao = new InputDao();
 		Farmer farmer = (Farmer) dao.retrieve(10, Farmer.class);
 		BankDetails B1 = new BankDetails();
 		B1.setBankName("hdfc");
@@ -317,9 +320,33 @@ public class inputTest {
 		lc.setBasePrice(5000);
 		lc.setQuantity(600);
 		lc.setPostTime(LocalDateTime.now());
-		lc.setExpiryTime(LocalDateTime.of(2019,11 , 20,5,30 ));
+		lc.setExpiryTime(LocalDateTime.of(2019,11 , 25,0,0 ));
 		Farmer farmer=(Farmer)dao.retrieve(1, Farmer.class);
 		lc.setFarmer(farmer);
 		dao.addEntity(lc);
 	}
+	@Test
+	public void fetchExpiryDate() {
+		
+		InputDao dao = new InputDao();
+		List<ListedCrops> crop =dao.fetchByExpiryDate(LocalDateTime.now());
+		assertNotNull(crop);
+		for( ListedCrops c : crop)
+		{
+			System.out.println(c.getExpiryTime());
+		}
+		
+	}
+
+	public void fetchCropDetailsByFid()
+	
+	{
+		InputDao dao = new InputDao();
+		CropDetails crop = (CropDetails)dao.retrieve(25,CropDetails.class);
+		assertNotNull(crop);
+		System.out.println(crop.getCropName());
+		System.out.println(crop.getCropType());
+		System.out.println(crop.getRate());
+	}
+	
 }
