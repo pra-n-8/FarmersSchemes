@@ -39,33 +39,18 @@ public class InputDao implements GenericInterface {
 	}
 //
 	public Object retrieve(int Id, Class clazz) {
-
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("dbConnection");
-	EntityManager em = emf.createEntityManager();
-	EntityTransaction et = em.getTransaction();
-	et.begin();
 	Object obj=(Object)em.find(clazz,Id);
-	et.commit();
-	em.close();
-	emf.close(); 
-	return obj;
 
-		Object entity = (Object) em.find(clazz, Id);
-		return entity;
+	return obj;
 
 	}
 
 	public List<ListedCrops> fetchByExpiryDate(LocalDateTime dateAndTime)
 	{
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dbConnection");
-		EntityManager em = emf.createEntityManager();
-		//localdatetime.of(c.EXPIRYTIME,'dd-mm-yy'),'dd-mm-yy') like to_date(to_char( ':et','dd/mm/yy'),'dd-mm-yy');
 		Query q=em.createQuery("select c 	from ListedCrops c where c.expiryTime < :dt");
 
 		q.setParameter("dt", dateAndTime);
 		List <ListedCrops> crops=q.getResultList();
-		em.close();
-		emf.close(); 
 		return crops;
 	}
 	
