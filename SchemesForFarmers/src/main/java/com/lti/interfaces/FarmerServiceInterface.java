@@ -1,7 +1,9 @@
 package com.lti.interfaces;
 
+import com.lti.model.Farmer;
+
 public interface FarmerServiceInterface {
-	public void addNewFarmer(Object obj);
+	public void addNewFarmer(Farmer obj);
 
 	public void addBankToFarmer(int id);
 

@@ -17,7 +17,6 @@ GenericInterface dao = (GenericInterface)ctx.getBean("genericdao");
 
 	public void display() {
 		// TODO Auto-generated method stub
-
 	}
 
 	public void loginCheck() {

@@ -47,7 +47,7 @@ public class InputDao implements GenericInterface {
 
 	public List<ListedCrops> fetchByExpiryDate(LocalDateTime dateAndTime)
 	{
-		Query q=em.createQuery("select c 	from ListedCrops c where c.expiryTime < :dt");
+		Query q=em.createQuery("select c from ListedCrops c where c.expiryTime < :dt");
 
 		q.setParameter("dt", dateAndTime);
 		List <ListedCrops> crops=q.getResultList();

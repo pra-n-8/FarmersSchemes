@@ -45,9 +45,6 @@
 		</property>
 	</bean>
 
-
-
-
 	<!-- Providing support for transaction management -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.jpa.JpaTransactionManager">
