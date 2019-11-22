@@ -22,6 +22,7 @@
             <div id="block">City   <input style="margin-left: 50px;" type="text" placeholder="bidderCity"></div>
             <div id="block">State  <input input style="margin-left: 45px;" type="text" placeholder="bidderState"></div>
             <div id="block">Pincode    <input style="margin-left: 25px;" type="number" placeholder="bidderPincode"></div>
+
         </div>
         <div style="text-align: center;"><h3 style="text-align: center;">Bank Details</h3>
             <div id="block">Account Number <input style="margin-left: 15px;" type="number" placeholder="Account Number"></div>
