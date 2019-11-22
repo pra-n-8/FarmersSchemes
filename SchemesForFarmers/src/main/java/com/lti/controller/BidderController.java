@@ -9,7 +9,7 @@ import com.lti.model.Bidder;
 @Controller
 public class BidderController {
 
-	 @RequestMapping(value="/Bregister.lti")
+	 @RequestMapping(value="Bregister.lti")
 	    public String display(Bidder bidder)  
 	    {  
 		System.out.println(bidder);
