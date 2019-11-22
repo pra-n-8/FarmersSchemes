@@ -1,9 +1,9 @@
+
 package com.lti.test;
 
 import static org.junit.Assert.assertNotNull;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -115,8 +115,8 @@ public class inputTest {
 	@Test
 	public void testFarmer() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericdao");
-		Farmer farmer1 = new Farmer();
+		GenericInterface dao = (GenericInterface)ctx.getBean("genericdao");
+ Farmer farmer1 = new Farmer();
 		farmer1.setFarmerName("vaman");
 		farmer1.setFarmerAddress("Mumbai");
 		farmer1.setFarmerCity("Mumbai");
@@ -194,11 +194,9 @@ public class inputTest {
 
 	@Test
 	public void testFetchFarmers() {
-		// ApplicationContext ctx = new
-		// ClassPathXmlApplicationContext("app-config.xml");
-		// GenericInterface dao = (GenericInterface)ctx.getBean("genericDao");
-		InputDao dao = new InputDao();
-		Farmer farmer = (Farmer) dao.retrieve(25, Farmer.class);
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+		Farmer farmer = (Farmer) dao.retrieve(10, Farmer.class);
 		assertNotNull(farmer);
 		System.out.println(farmer.getFarmerName());
 		System.out.println(farmer.getFarmerContact());
@@ -206,10 +204,8 @@ public class inputTest {
 
 	@Test
 	public void testFetchBidders() {
-		// ApplicationContext ctx = new
-		// ClassPathXmlApplicationContext("app-config.xml");
-		// GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
-		InputDao dao = new InputDao();
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
 		Bidder bidder = (Bidder) dao.retrieve(48, Bidder.class);
 		BankDetails bank = new BankDetails();
 		bank.setBankName("BOI");
@@ -219,72 +215,77 @@ public class inputTest {
 
 	@Test
 	public void testFetchFarmer() {
-		// ApplicationContext ctx = new
-		// ClassPathXmlApplicationContext("app-config.xml");
-		// GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
-		InputDao dao = new InputDao();
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
 		Farmer farmer = (Farmer) dao.retrieve(10, Farmer.class);
+		BankDetails B1 = new BankDetails();
+		B1.setBankName("hdfc");
+		B1.setFarm(farmer);
+		farmer.setBank(B1);
+		dao.addEntity(B1);
 
 		// assertNotNull(bidder);
-		System.out.println(farmer.getFarmerName());
+		// System.out.println(bidder.getBidderName());
+		// System.out.println(bidder.getBidderContact());
 
 	}
 
 	@Test
 	public void testCropDetails() {
-		// ApplicationContext ctx = new
-		// ClassPathXmlApplicationContext("app-config.xml");
-		// GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+//		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
 		InputDao dao = new InputDao();
-		Farmer farmer = (Farmer) dao.retrieve(1, Farmer.class);
-		CropDetails crop = new CropDetails();
+		Farmer  farmer=(Farmer)dao.retrieve(1, Farmer.class);
+		CropDetails  crop=new CropDetails();
 		crop.setCropName("wheat");
 		crop.setCropType("Food crop");
 		crop.setFertilizerType("Organic");
 		crop.setRate(500);
 		crop.setFarm(farmer);
 		dao.addEntity(crop);
-
-		CropDetails crop1 = new CropDetails();
+		
+		CropDetails  crop1=new CropDetails();
 		crop1.setCropName("rice");
 		crop1.setCropType("Food crop");
 		crop1.setFertilizerType("Organic");
 		crop1.setRate(400);
 		crop1.setFarm(farmer);
 		dao.addEntity(crop1);
-
-		CropDetails crop3 = new CropDetails();
+		
+		CropDetails  crop3=new CropDetails();
 		crop3.setCropName("sugarcane");
 		crop3.setCropType("cash crop");
 		crop3.setFertilizerType("Inorganic");
 		crop3.setRate(1000);
 		crop3.setFarm(farmer);
 		dao.addEntity(crop3);
-
-		CropDetails crop4 = new CropDetails();
+		
+		CropDetails  crop4=new CropDetails();
 		crop4.setCropName("coffee");
 		crop4.setCropType("Plantation  crop");
 		crop4.setFertilizerType("Organic");
 		crop4.setRate(900);
 		crop4.setFarm(farmer);
 		dao.addEntity(crop4);
-
-		CropDetails crop5 = new CropDetails();
+		
+		CropDetails  crop5=new CropDetails();
 		crop5.setCropName("tea");
 		crop5.setCropType("Plantation  crop");
 		crop5.setFertilizerType("Organic");
 		crop5.setRate(990);
 		crop5.setFarm(farmer);
 		dao.addEntity(crop5);
-
-		CropDetails crop6 = new CropDetails();
+		
+		CropDetails  crop6=new CropDetails();
 		crop6.setCropName("millet");
 		crop6.setCropType("Food  crop");
 		crop6.setFertilizerType("Organic");
 		crop6.setRate(700);
 		crop6.setFarm(farmer);
 		dao.addEntity(crop6);
-
+		
+		
+		
 		// Query query= EntityManager.createQuery("SELECT f FROM Farmer c JOIN
 		// c.CropDetails f", CropDetails.class);
 		// Double result = (Double) query1.getSingleResult();
@@ -302,45 +303,20 @@ public class inputTest {
 	// ListedCrops.setCrop(abc);
 	// ListedCrops.setBasePrice(100000);
 	// ListedCrops.setQuantity(10);
-
+	
 	@Test
 	public void addListedCrops() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
-		CropDetails crop = (CropDetails) dao.retrieve(25, CropDetails.class);
-
-		ListedCrops lc = new ListedCrops();
-		lc.setCrop(crop);
+	 ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+	 GenericInterface dao = (GenericInterface)ctx.getBean("genericDao");
+		CropDetails crop = (CropDetails)dao.retrieve(25,CropDetails.class);
+		
+		ListedCrops lc = new ListedCrops();		lc.setCrop(crop);
 		lc.setBasePrice(5000);
 		lc.setQuantity(600);
 		lc.setPostTime(LocalDateTime.now());
-		lc.setExpiryTime(LocalDateTime.of(2019, 11, 25, 0, 0));
-		Farmer farmer = (Farmer) dao.retrieve(1, Farmer.class);
+		lc.setExpiryTime(LocalDateTime.of(2019,11 , 20,5,30 ));
+		Farmer farmer=(Farmer)dao.retrieve(1, Farmer.class);
 		lc.setFarmer(farmer);
 		dao.addEntity(lc);
 	}
-
-	@Test
-	public void fetchExpiryDate() {
-
-		InputDao dao = new InputDao();
-		List<ListedCrops> crop = dao.fetchByExpiryDate(LocalDateTime.now());
-		assertNotNull(crop);
-		for (ListedCrops c : crop) {
-			System.out.println(c.getExpiryTime());
-		}
-
-	}
-
-	public void fetchCropDetailsByFid()
-
-	{
-		InputDao dao = new InputDao();
-		CropDetails crop = (CropDetails) dao.retrieve(25, CropDetails.class);
-		assertNotNull(crop);
-		System.out.println(crop.getCropName());
-		System.out.println(crop.getCropType());
-		System.out.println(crop.getRate());
-	}
-
 }
