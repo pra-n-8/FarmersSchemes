@@ -4,7 +4,6 @@ package com.lti.test;
 import static org.junit.Assert.assertNotNull;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -195,10 +194,11 @@ public class inputTest {
 
 	@Test
 	public void testFetchFarmers() {
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-//		GenericInterface dao = (GenericInterface)ctx.getBean("genericDao");
-		InputDao dao = new InputDao();
-		Farmer farmer = (Farmer) dao.retrieve(25, Farmer.class);
+
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
+		Farmer farmer = (Farmer) dao.retrieve(10, Farmer.class);
+
 		assertNotNull(farmer);
 		System.out.println(farmer.getFarmerName());
 		System.out.println(farmer.getFarmerContact());
@@ -206,9 +206,9 @@ public class inputTest {
 
 	@Test
 	public void testFetchBidders() {
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-//		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
-		InputDao dao = new InputDao();
+
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
 		Bidder bidder = (Bidder) dao.retrieve(48, Bidder.class);
 		BankDetails bank = new BankDetails();
 		bank.setBankName("BOI");
@@ -218,15 +218,19 @@ public class inputTest {
 
 	@Test
 	public void testFetchFarmer() {
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
-//		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
-		InputDao dao = new InputDao();
+
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("app-config.xml");
+		GenericInterface dao = (GenericInterface) ctx.getBean("genericDao");
 		Farmer farmer = (Farmer) dao.retrieve(10, Farmer.class);
-		
+		BankDetails B1 = new BankDetails();
+		B1.setBankName("hdfc");
+		B1.setFarm(farmer);
+		farmer.setBank(B1);
+		dao.addEntity(B1);
 
 		// assertNotNull(bidder);
-		 System.out.println(farmer.getFarmerName());
-		 
+		// System.out.println(bidder.getBidderName());
+		// System.out.println(bidder.getBidderContact());
 
 	}
 
@@ -310,16 +314,18 @@ public class inputTest {
 	 GenericInterface dao = (GenericInterface)ctx.getBean("genericDao");
 		CropDetails crop = (CropDetails)dao.retrieve(25,CropDetails.class);
 		
-		ListedCrops lc = new ListedCrops();	
-		lc.setCrop(crop);
+
+		ListedCrops lc = new ListedCrops();		lc.setCrop(crop);
 		lc.setBasePrice(5000);
 		lc.setQuantity(600);
 		lc.setPostTime(LocalDateTime.now());
-		lc.setExpiryTime(LocalDateTime.of(2019,11 , 25,0,0 ));
+		lc.setExpiryTime(LocalDateTime.of(2019,11 , 20,5,30 ));
+
 		Farmer farmer=(Farmer)dao.retrieve(1, Farmer.class);
 		lc.setFarmer(farmer);
 		dao.addEntity(lc);
 	}
+
 	@Test
 	public void fetchExpiryDate() {
 		

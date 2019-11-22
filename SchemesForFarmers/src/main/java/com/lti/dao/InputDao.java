@@ -1,4 +1,7 @@
+
+
 package com.lti.dao;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,8 +15,6 @@ import java.util.List;
 import javax.persistence.Query;
 
 import com.lti.interfaces.GenericInterface;
-import com.lti.model.CropDetails;
-import com.lti.model.ListedCrops;
 
 @Component("genericDao")
 public class InputDao implements GenericInterface {
@@ -35,6 +36,7 @@ public class InputDao implements GenericInterface {
 
 //
 	public Object retrieve(int Id, Class clazz) {
+
 		Object obj = (Object) em.find(clazz, Id);
 
 		return obj;
@@ -60,6 +62,10 @@ public class InputDao implements GenericInterface {
 		q1.setParameter("cd", crop);
 		List<CropDetails> crops = q1.getResultList();
 		return crops;
+
+		Object entity = (Object) em.find(clazz, Id);
+		return entity;
+
 	}
 
 }

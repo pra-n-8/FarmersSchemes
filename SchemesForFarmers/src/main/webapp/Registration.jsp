@@ -24,6 +24,7 @@ State<input type="text" placeholder="Enter your state " >
 Pincode<input type="text" placeholder="Enter your pincode  " > 
 </div>
 
+
 <div class=container2>
 <h3>Land Details</h3>
 Area<input type="text" placeholder="Enter area " > 
@@ -47,4 +48,5 @@ Password<input type="password" placeholder="Enter your password " >
 </div>
 
 </body>
+
 </html>

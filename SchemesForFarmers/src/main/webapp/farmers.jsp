@@ -9,7 +9,9 @@
 </head>
 <body>
 <div class="form-wrap">
+
 <form action="register.lti" action="post">
+
     <fieldset style="margin-right: 400px; margin-left: 400px;">
         <legend style="text-align: center;"><h1 style="text-align: center;">SignUp</h1></legend>
     
