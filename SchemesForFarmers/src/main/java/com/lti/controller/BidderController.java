@@ -9,13 +9,10 @@ import com.lti.model.Bidder;
 @Controller
 public class BidderController {
 	
-	@Autowired
- // private	BidderService bidderService
-	
-	 @RequestMapping(value="/register.lti")
+	 @RequestMapping(value="/Bregister.lti")
 	    public String display(Bidder bidder)  
 	    {  
-		
+		System.out.println(bidder.getBidderName());
 	        return "home.jsp";  
 	    }
 	

@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="form-wrap">
-<form action="Bregister">
+<form action="Bregister.lti" method="post">
     <fieldset style="margin-right: 400px; margin-left: 400px;">
         <legend style="text-align: center;"><h1 style="text-align: center;">SignUp</h1></legend>
     
@@ -18,16 +18,16 @@
             <div id="block">Email Id   <input style="margin-left: 90px;" type="email" placeholder="Email Id" name="bidderEmail"></div>
         </div>
         <div style="text-align: center;"><h3>Address Details</h3>
-            <div id="block">Address    <input style="margin-left: 25px;" type="text" placeholder="bidderAddress"></div>
-            <div id="block">City   <input style="margin-left: 50px;" type="text" placeholder="bidderCity"></div>
-            <div id="block">State  <input input style="margin-left: 45px;" type="text" placeholder="bidderState"></div>
-            <div id="block">Pincode    <input style="margin-left: 25px;" type="number" placeholder="bidderPincode"></div>
+            <div id="block">Address    <input style="margin-left: 25px;" type="text" placeholder="Address" name="bidderAddress"></div>
+            <div id="block">City   <input style="margin-left: 50px;" type="text" placeholder="City" name ="bidderCity"></div>
+            <div id="block">State  <input input style="margin-left: 45px;" type="text" placeholder="State" name="bidderState"></div>
+            <div id="block">Pincode    <input style="margin-left: 25px;" type="number" placeholder="Pincode" name="bidderPinCode"></div>
         </div>
         <div style="text-align: center;"><h3 style="text-align: center;">Bank Details</h3>
-            <div id="block">Account Number <input style="margin-left: 15px;" type="number" placeholder="Account Number"></div>
-            <div id="block">IFSC Code  <input style="margin-left: 60px;" type="text" placeholder="IFSC Code"></div>
+            <div id="block">Account Number <input style="margin-left: 15px;" type="number" placeholder="Account Number" name="bank"></div>
+            
             <div id="block">Password   <input style="margin-left: 65px;" type="text" placeholder="Password"></div>
-            <div id="block">Confirm Password<input style="margin-left: 10px;" type="text" placeholder="Confirm Password"></div>
+            <div id="block">Confirm Password<input style="margin-left: 10px;" type="text" placeholder="Confirm Password" name="bidderPassword"></div>
         </div>
         </fieldset>
         <div style="text-align: center; margin-top: 50px;"><input type="submit" value="Submit"></div>
